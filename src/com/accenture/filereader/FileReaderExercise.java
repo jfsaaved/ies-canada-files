@@ -4,6 +4,7 @@ import com.accenture.Main;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
 
 public class FileReaderExercise {
@@ -42,7 +43,7 @@ public class FileReaderExercise {
 
     /* Resource reading BufferedReader and BufferedWriter: https://medium.com/@isaacjumba/why-use-bufferedreader-and-bufferedwriter-classses-in-java-39074ee1a966
     BufferedReader allows you to open the file for reading.
-    Instantiating the object automatically opens the file. You need to call close() to close the file again on runtime.*/
+    Instantiating the object automatically opens the file. You need to call close(), which will also flush, to close the file again on runtime.*/
     public String readContentOfFileThroughBufferedReader() throws IOException {
         BufferedReader br = Files.newBufferedReader(file.toPath());
         String content = br.readLine();
@@ -57,6 +58,20 @@ public class FileReaderExercise {
         bw.newLine();
         bw.append(toWrite);
         bw.close();
+    }
+
+    public ArrayList<String> getAllFileNamesInDirectory() {
+        File[] listOfFiles = new File (Main.class.getResource("").getPath()).listFiles();
+        ArrayList<String> result = new ArrayList<>();
+        for(int i = 0 ; i < listOfFiles.length; i ++){
+            result.add(listOfFiles[i].getName());
+        }
+        return result;
+    }
+
+    public String getFileDirectory() {
+        String fileDirectory = new File(Main.class.getResource("").getPath()).getPath();
+        return fileDirectory;
     }
 
 }

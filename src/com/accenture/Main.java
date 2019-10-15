@@ -31,7 +31,10 @@ public class Main {
         System.out.println("--------------------------------------------");
         fre.writeToFileThroughBufferedWriter("A random number : " + new Random().nextInt());
         System.out.println("Write and show contents of file using BufferedWrited: " + fre.readContentsOfFile());
-
+        System.out.println("--------------------------------------------");
+        System.out.println("Contents of directory: " + fre.getAllFileNamesInDirectory());
+        System.out.println("--------------------------------------------");
+        System.out.println("File directory: " + fre.getFileDirectory());
     }
 
 }
