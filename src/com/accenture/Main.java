@@ -25,6 +25,8 @@ public class Main {
         System.out.println("--------------------------------------------");
         System.out.println("Printing contents of the file: " + fre.readContentsOfFile());
         System.out.println("--------------------------------------------");
+        System.out.println("Printing contents of the file through FileReader: " + fre.readContentsOfFileThroughFileReader());
+        System.out.println("--------------------------------------------");
         System.out.println("Printing first line of the file: " + fre.readContentsOfFileLineByLine().get(0));
         System.out.println("--------------------------------------------");
         System.out.println("Printing first line, using BufferedReader: " + fre.readContentOfFileThroughBufferedReader());

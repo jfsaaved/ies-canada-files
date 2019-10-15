@@ -9,7 +9,8 @@ import java.util.List;
 
 public class FileReaderExercise {
 
-    /* Files class documentation: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Files.html */
+    /* Files class documentation: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/file/Files.html
+     Differences between IO and NIO: https://dzone.com/articles/java-nio-vs-io */
 
     private File file;
 
@@ -31,9 +32,20 @@ public class FileReaderExercise {
     In all these cases, our program doesn't need to exit, instead it can take actions like alerting the user
     or go into a fallback mechanism(like offline working when network not available), etc.
 
-    We use the Files readString() method to get contents of the file*/
+    We use the Files readString() method to get contents of the file
+    Differences between FileReader, BufferedReader, and Scanner: https://www.stackchief.com/blog/FileReader%20vs%20BufferedReader%20vs%20Scanner%20%7C%20Java*/
     public String readContentsOfFile() throws IOException{
         return Files.readString(file.toPath());
+    }
+
+    /* We can read the file character by character using FileReader */
+    public String readContentsOfFileThroughFileReader() throws IOException {
+        FileReader fr = new FileReader(file);
+        String result = "";
+        int i;
+        while((i=fr.read()) != - 1)
+            result = result + (char) i;
+        return result;
     }
 
     /*We use the Files readAllLines() method to get contents of the file, line by line, and store them in a List<String>*/
